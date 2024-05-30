@@ -13,10 +13,140 @@
         }
     },
     "paths": {
-        "/api/books": {
+        "/api/user/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register new user & get token",
+                "operationId": "register",
+                "requestBody": {
+                    "description": "Request body description",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "example": {
+                                "name": "Victorio Putra",
+                                "email": "Benvictt@gmail.com",
+                                "password": "putra123",
+                                "password_confirmation": "putra123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Log in to existing user & get token",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Request body description",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "example": {
+                                "email": "Benvictt@gmail.com",
+                                "password": "putra123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Log out & destroy self token",
+                "operationId": "logout",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport_token_ready": [],
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/book": {
             "get": {
                 "tags": [
-                    "book"
+                    "Book"
                 ],
                 "summary": "Display a listing of the items",
                 "operationId": "index",
@@ -33,7 +163,7 @@
             },
             "post": {
                 "tags": [
-                    "book"
+                    "Book"
                 ],
                 "summary": "Store a newly created item",
                 "operationId": "store",
@@ -74,13 +204,19 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport_token_ready": [],
+                        "passport": []
+                    }
+                ]
             }
         },
-        "/api/books/{id}": {
+        "/api/book/{id}": {
             "get": {
                 "tags": [
-                    "book"
+                    "Book"
                 ],
                 "summary": "Display the specified item",
                 "operationId": "show",
@@ -125,7 +261,7 @@
             },
             "put": {
                 "tags": [
-                    "book"
+                    "Book"
                 ],
                 "summary": "Update the specified item",
                 "operationId": "update",
@@ -186,11 +322,17 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport_token_ready": [],
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
-                    "book"
+                    "Book"
                 ],
                 "summary": "Remove the specified item",
                 "operationId": "destroy",
@@ -231,7 +373,13 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport_token_ready": [],
+                        "passport": []
+                    }
+                ]
             }
         }
     },
@@ -246,6 +394,41 @@
                 ],
                 "xml": {
                     "name": "Book"
+                }
+            },
+            "User": {
+                "title": "User model",
+                "description": "User model",
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ],
+                "xml": {
+                    "name": "User"
+                }
+            }
+        },
+        "securitySchemes": {
+            "passport_token_ready": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Enter token in format without \"Bearer \"",
+                "name": "Authorization",
+                "in": "header"
+            },
+            "passport": {
+                "type": "oauth2",
+                "description": "Laravel passport oauth2 security",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost/oauth/authorize",
+                        "tokenUrl": "http://localhost/oauth/token",
+                        "refreshUrl": "http://localhost/token/refresh",
+                        "scopes": []
+                    }
                 }
             }
         }
