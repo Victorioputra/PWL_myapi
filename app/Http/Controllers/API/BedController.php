@@ -6,22 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use App\Models\Book;
+use App\Models\Bed;
 use OpenApi\Annotations as OA;
 
 
-/**
- * Class BookController,
- * 
- * @author Victorio <victorio.422023022@civitas.ukrida.ac.id>
- */
-
-class BookController extends Controller
+class BedController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/book",
-     *     tags={"Book"},
+     *     path="/api/bed",
+     *     tags={"Bed"},
      *     summary="Display a listing of items",
      *     operationId="index",
      *     @OA\Response(
@@ -89,7 +83,7 @@ class BookController extends Controller
             $page                 = $data['filter']['_page']  = (@$data['filter']['_page'] ? intval($data['filter']['_page']) : 1);
             $limit                = $data['filter']['_limit'] = (@$data['filter']['_limit'] ? intval($data['filter']['_limit']) : 1000);
             $offset               = ($page?($page-1)*$limit:0);
-            $data['products']     = Book::whereRaw('1 = 1');
+            $data['products']     = Bed::whereRaw('1 = 1');
             
             if($request->get('_search')){
                 $data['products'] = $data['products']->whereRaw('(LOWER(title) LIKE "%'.strtolower($request->get('_search')).'%" OR LOWER(author) LIKE "%'.strtolower($request->get('_search')).'%")');
@@ -135,8 +129,8 @@ class BookController extends Controller
 
     /**
     * @OA\Post(
-    *     path="/api/book",
-    *     tags={"Book"},
+    *     path="/api/bed",
+    *     tags={"Bed"},
     *     summary="Store a newly created item",
     *     operationId="store",
     *     @OA\Response(
@@ -153,7 +147,7 @@ class BookController extends Controller
     *         required=true,
     *         description="Request body description",
     *         @OA\JsonContent(
-    *             ref="#/components/schemas/Book",
+    *             ref="#/components/schemas/Bed",
     *             example={"title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!", "author": "Robert T. Kiyosaki dengan Sharon Lechter", "publisher": "Plata Publishing", "publication_year": "2011", 
     *                      "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/book/1482170055i/33511107.jpg", 
     *                      "description": "Rich Dad Poor Dad adalah buku yang mengubah cara orang memandang uang dan investasi. Robert T. Kiyosaki menceritakan pengalamannya dibesarkan oleh dua 
@@ -175,9 +169,9 @@ class BookController extends Controller
             if ($validator->fails()) {
                 throw new HttpException(400, $validator->messages()->first());
             }
-            $book = new Book;
-            $book->fill($request->all())->save();
-            return $book;
+            $bed = new Bed;
+            $bed->fill($request->all())->save();
+            return $bed;
 
         } catch(\Exception $exception) {
             throw new HttpException(400, "Invalid data : {$exception->getMessage()}");
@@ -187,8 +181,8 @@ class BookController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/api/book/{id}",
-    *     tags={"Book"},
+    *     path="/api/bed/{id}",
+    *     tags={"Bed"},
     *     summary="Display the specified item",
     *     operationId="show",
     *     @OA\Response(
@@ -222,19 +216,18 @@ class BookController extends Controller
     
     public function show($id)
     {
-        $book = Book::find($id);
-        if(!$book){
+        $bed = Bed::find($id);
+        if(!$bed){
             throw new HttpException(404, 'Item not found');
         }
-        // dump($book);
         
-        return $book;
+        return $bed;
     }
 
     /**
      * @OA\Put(
-     *     path="/api/book/{id}",
-     *     tags={"Book"},
+     *     path="/api/bed/{id}",
+     *     tags={"Bed"},
      *     summary="Update the specified item",
      *     operationId="update",
      *     @OA\Response(
@@ -266,7 +259,7 @@ class BookController extends Controller
      *         required=true,
      *         description="Request body description",
      *         @OA\JsonContent(
-     *             ref="#/components/schemas/Book",
+     *             ref="#/components/schemas/Bed",
      *             example={"title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!", "author": "Robert T. Kiyosaki dengan Sharon Lechter", "publisher": "Plata Publishing", "publication_year": "2011", 
     *                      "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/book/1482170055i/33511107.jpg", 
     *                      "description": "Rich Dad Poor Dad adalah buku yang mengubah cara orang memandang uang dan investasi. Robert T. Kiyosaki menceritakan pengalamannya dibesarkan oleh dua 
@@ -279,20 +272,20 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = Book::find($id);
-        if(!$book){
+        $bed = Bed::find($id);
+        if(!$bed){
             throw new HttpException(404, 'Item not found');
         }
 
         try {
             $validator = Validator::make($request->all(), [
-                'title'  => 'required|unique:books',
+                'title'  => 'required|unique:beds',
                 'author'  => 'required|max:100',
             ]); 
             if ($validator->fails()) {
                 throw new HttpException(400, $validator->messages()->first());
             }
-           $book->fill($request->all())->save();
+           $bed->fill($request->all())->save();
            return response()->json(array('message'=>'Updated successfully'), 200);
 
         } catch(\Exception $exception) {
@@ -302,8 +295,8 @@ class BookController extends Controller
     
     /**
      * @OA\Delete(
-     *     path="/api/book/{id}",
-     *     tags={"Book"},
+     *     path="/api/bed/{id}",
+     *     tags={"Bed"},
      *     summary="Remove the specified item",
      *     operationId="destroy",
      *     @OA\Response(
@@ -336,13 +329,13 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id);
-        if(!$book){
+        $bed = Bed::find($id);
+        if(!$bed){
             throw new HttpException(404, 'Item not found');
         }
 
         try {
-            $book->delete();
+            $bed->delete();
             return response()->json(array('message'=>'Deleted successfully'), 200);
 
         } catch(\Exception $exception) {
@@ -350,3 +343,5 @@ class BookController extends Controller
         }
     }
 }
+    //
+

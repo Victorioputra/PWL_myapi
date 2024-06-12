@@ -7,10 +7,10 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
-Route::get('/book', function () {
+Route::get('/bed', function () {
     return view('pages.plp');
 })->name('plp');
 
-Route::get('/book/{i}', function () {
+Route::get('/bed/{i}', function () {
     return view('pages.pdp');
 })->name('pdp');

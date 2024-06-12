@@ -143,10 +143,10 @@
                 ]
             }
         },
-        "/api/book": {
+        "/api/bed": {
             "get": {
                 "tags": [
-                    "Book"
+                    "Bed"
                 ],
                 "summary": "Display a listing of items",
                 "operationId": "index",
@@ -215,7 +215,7 @@
             },
             "post": {
                 "tags": [
-                    "Book"
+                    "Bed"
                 ],
                 "summary": "Store a newly created item",
                 "operationId": "store",
@@ -225,7 +225,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Book"
+                                "$ref": "#/components/schemas/Bed"
                             },
                             "example": {
                                 "title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!",
@@ -265,10 +265,10 @@
                 ]
             }
         },
-        "/api/book/{id}": {
+        "/api/bed/{id}": {
             "get": {
                 "tags": [
-                    "Book"
+                    "Bed"
                 ],
                 "summary": "Display the specified item",
                 "operationId": "show",
@@ -313,7 +313,7 @@
             },
             "put": {
                 "tags": [
-                    "Book"
+                    "Bed"
                 ],
                 "summary": "Update the specified item",
                 "operationId": "update",
@@ -335,7 +335,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Book"
+                                "$ref": "#/components/schemas/Bed"
                             },
                             "example": {
                                 "title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!",
@@ -384,7 +384,7 @@
             },
             "delete": {
                 "tags": [
-                    "Book"
+                    "Bed"
                 ],
                 "summary": "Remove the specified item",
                 "operationId": "destroy",
@@ -437,15 +437,15 @@
     },
     "components": {
         "schemas": {
-            "Book": {
-                "title": "Book model",
-                "description": "Book model",
+            "Bed": {
+                "title": "Bed model",
+                "description": "Bed model",
                 "required": [
                     "title",
                     "author"
                 ],
                 "xml": {
-                    "name": "Book"
+                    "name": "Bed"
                 }
             },
             "User": {

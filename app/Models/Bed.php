@@ -9,26 +9,26 @@ use App\Models\User;
 use OpenApi\Annotations as OA;
 
 /**
- * Class Book.
+ * Class Bed.
  * 
  * @author  Victorio Putra Saritan <victorio.422023022@civitas.ukrida.ac.id>
  * 
  * @OA\Schema(
- *     description="Book model",
- *     title="Book model",
+ *     description="Bed model",
+ *     title="Bed model",
  *     required={"title", "author"},
  *     @OA\Xml(
- *         name="Book"
+ *         name="Bed"
  *     )
  * )
  */
 
  
-class Book extends Model
+class Bed extends Model
 {
     // use HasFactory;
     use SoftDeletes;
-    protected $table = 'books';
+    protected $table = 'beds';
     // protected $fillable = [
     //     'title',
     //     'author',

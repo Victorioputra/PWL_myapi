@@ -6,7 +6,7 @@ function getDataOnEnter(event){
     }
 }
 function getData(toPage=1){
-    let url = baseUrl+'/api/book';
+    let url = baseUrl+'/api/bed';
     if(toPage){
         $('[name="_page"]').val(toPage);
     }
@@ -27,11 +27,11 @@ function getData(toPage=1){
                 template += `   <div class="col-lg-3 col-md-4 col-sm-6">    
                                     <div class="single-product-item text-center">
                                         <div class="products-images">
-                                            <a href="/book/`+item.id+`" class="product-thumbnail">
+                                            <a href="/bed/`+item.id+`" class="product-thumbnail">
                                                 <img src="`+item.cover+`" alt="Product Images" height="300">
                                             </a>
                                             <div class="product-actions">
-                                                <a href="/book/`+item.id+`">
+                                                <a href="/bed/`+item.id+`">
                                                     <i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span>
                                                 </a>
                                                 <a href="#">
@@ -41,7 +41,7 @@ function getData(toPage=1){
                                         </div>  
                                         <div class="product-content">
                                             <h6 class="product-title">
-                                            <a href="/book/`+item.id+`">`+item.title+`</a>
+                                            <a href="/bed/`+item.id+`">`+item.title+`</a>
                                         </h6>
                                         <small class="text-color-primary">`+item.series+`</small>
                                         <div class="product-price">

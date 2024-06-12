@@ -1,8 +1,8 @@
 function getDataByWindowUrlKey(){
     let windowUrl = $(location).attr('href'); 
     let windowUrlKey = windowUrl.replace(/\/\s*$/, "").split('/').pop();
-    let url = baseUrl+'/api/book/'+windowUrlKey;
-    
+    let url = baseUrl+'/api/bed/'+windowUrlKey;
+
     axios.get(url,{},apiHeaders)
     .then(function (response) {
       console.log('[DATA] response..',response.data);
