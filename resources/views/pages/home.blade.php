@@ -7,8 +7,7 @@
                 <div class="row ">
                     <div class="col-lg-12">
                         <!-- Hero Slider Area Start -->
-                        <div class="hero-area" id="product-preview">
-                        </div>
+                        <div class="hero-area" id="product-preview"></div>
                         <!-- Hero Slider Area End -->
                     </div>
                 </div>

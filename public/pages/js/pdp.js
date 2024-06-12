@@ -15,7 +15,7 @@ function getDataByWindowUrlKey(){
       $('#product-description').html(response.data.description);
       $('#product-author').html(response.data.author);
       $('#product-publisher').html('First published '+response.data.publication_year+' by '+response.data.publisher);
-
+      console.log("LOG: ", response.data.stock);
       // START -- note, unless you have these data in a database structure, here we are hardcoding them for display purposes
         // review
         let stars = randomIntFromInterval(1,5);

@@ -226,6 +226,8 @@ class BookController extends Controller
         if(!$book){
             throw new HttpException(404, 'Item not found');
         }
+        // dump($book);
+        
         return $book;
     }
 

@@ -30,7 +30,7 @@ function getData(toPage=1){
                                             <a href="/book/`+item.id+`" class="product-thumbnail">
                                                 <img src="`+item.cover+`" alt="Product Images" height="300">
                                             </a>
-                                            <div class="product-icon">
+                                            <div class="product-actions">
                                                 <a href="/book/`+item.id+`">
                                                     <i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span>
                                                 </a>

@@ -21,8 +21,8 @@ function getData(){
                             <div class="hero-content-wrap">
                                 <div class="hero-text-7 mt-lg-5">
                                     <h6 class="mb-20">
-                                        Latest from AFW
-                                    </h6>
+                                        Latest from Bed & Bath Store
+                                    </h6> 
                                     <h1>`+breakWord(item.title)+`</h1>
                                     
                                     <div class="button-box section-space--mt_60">
@@ -31,7 +31,7 @@ function getData(){
                                 </div>
                                 <div class="inner-images">
                                     <div class="image-one">
-                                        <img src="`+item.cover+`" width="250" class="img-fluid" alt="Image">
+                                    <img src="`+item.cover+`" width="250" class="img-fluid" alt="Image" >
                                     </div>
                                 </div>
                             </div>
