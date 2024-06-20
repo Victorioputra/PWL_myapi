@@ -13,7 +13,7 @@
                             <div class="easyzoom-style">
                                 <div class="easyzoom easyzoom--overlay">
                                     <a href="{{ asset('assets/images/product/single-product-01.webp') }}" 
-                                    class="poppu-img-product-img-main-href">
+                                    class="poppu-img-product-img-main-href product-img-main-href">
                                         <img src="{{ asset('assets/images/product/single-product-01.webp') }}" class="img-fluid product-img-main-src" alt="">
                                     </a>
                                 </div>
@@ -22,8 +22,8 @@
                             <div class="easyzoom-style">
                                 <div class="easyzoom easyzoom--overlay">
                                     <a href="{{ asset('assets/images/product/single-product-02.webp') }}" 
-                                    class="poppu-img">
-                                        <img src="{{ asset('assets/images/product/single-product-03.webp') }}" class="img-fluid" alt="">
+                                    class="poppu-img-product-img-main-href  product-img-main-href">
+                                        <img src="{{ asset('assets/images/product/single-product-03.webp') }}" class="img-fluid product-img-main-src" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                             </div>
                             @for($i=0;$i<3;$i++)
                             <div class="sm-image">
-                                <img src="{{ asset('assets/images/product/small/2-100x100.webp') }}" alt="product image thumb">
+                                <img src="{{ asset('assets/images/product/small/2-100x100.webp') }}" alt="product image thumb" class="product-img-main-src">
                             </div>
                             @endfor
                         </div>
@@ -83,11 +83,11 @@
 
                         <div class="product_meta mt-30">
                             <div class="posted_in item_meta">
-                                <span class="label">Author: </span>
+                                <span class="label">Brand: </span>
                                 <span id="product-author" class="text-color-primary"></span>
                             </div>
                             <div class="posted_in item_meta">
-                                <span class="label">Publisher: </span>
+                                <span class="label">Type: </span>
                                 <span id="product-publisher"></span>
                             </div>
                             <div class="tagged_as item_meta">

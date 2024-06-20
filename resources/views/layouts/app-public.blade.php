@@ -9,7 +9,8 @@
     <meta name="author" content="NIM-NAME">
 
     <title>Bed & Bath Store  | 422023022 Victorio Putra Saritan</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo/logo1.png') }}">
+
     <!-- BEGIN: CSS Assets -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/linearicons.min.css') }}">

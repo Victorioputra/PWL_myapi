@@ -6,7 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BedController;
 
 Route::prefix('user')->group(function () {
-    Route::get('/users', function () {
+    Route::get('/users', function ($request) {
         return $request->user();
     });
     Route::post('/register', [AuthController::class, 'register']);
@@ -18,6 +18,8 @@ Route::prefix('user')->group(function () {
 Route::Resource('bed', BedController::class, [
     'only' => [
         'index',
-        'show'
+        'show',
+        'store',
+        'update',
     ]
 ]);

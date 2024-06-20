@@ -29,19 +29,18 @@ class Bed extends Model
     // use HasFactory;
     use SoftDeletes;
     protected $table = 'beds';
-    // protected $fillable = [
-    //     'title',
-    //     'author',
-    //     'publisher',
-    //     'publication_year',
-    //     'cover',
-    //     'description',
-    //     'price',
-    //     'created_at',
-    //     'created_by',
-    //     'updated_at',
-    //     'updated_by',
-    // ];
+    protected $fillable = [
+        'product_name',
+        'brand',
+        'type',
+        'cover',
+        'description',
+        'price',
+        'created_at',
+        'created_by',
+        'updated_at',
+        'updated_by',
+    ];
 
     public function data_adder(){
         return $this->belongsTo(User::class, 'created_by', 'id');

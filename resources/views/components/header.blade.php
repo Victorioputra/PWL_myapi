@@ -1,13 +1,14 @@
 <!--====================  header area ====================-->
 <div class="header-area header-area--default bg-white">
     <!-- Header Bottom Wrap Start -->
-    <header class="header-area   header-sticky">
+    <header class="header-area">
+        <header class="header-area header-sticky">
         <div class="container-fluid container-fluid--cp-100">
             <div class="row">
                 <div class="col-lg-12 d-none d-md-block">
                     <div class="top-logo-area">
                         <div class="logo text-md-center">
-                            <a href="{{route('home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="logo" style="width:40%"></a>
+                            <a href="{{route('home')}}"><img src="{{asset('assets/images/logo/logo1.png')}}" alt="logo" style="width:35%"></a>
                         </div>
                     </div>
                 </div>
@@ -21,7 +22,7 @@
                         </span>
                     </div>
                     <div class="logo__hidden text-start">
-                        <a href="{{route('home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="" style="height:40px"></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets/images/logo/logo1.png')}}" alt="" style="height:65px"></a>
                     </div>
                 </div>
 

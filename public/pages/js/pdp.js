@@ -10,12 +10,12 @@ function getDataByWindowUrlKey(){
 
       $('.product-img-main-href').attr('href',response.data.cover);
       $('.product-img-main-src').attr('src',response.data.cover);
-      $('#product-name').html(response.data.title);
-      $('#product-price').html('IDR '+parseFloat(response.data.price).toLocaleString());
+      $('#product-name').html(response.data.product_name);
+      $('#product-price').html('IDR '+parseFloat(response.data.price).toLocaleString("id-ID"));
       $('#product-description').html(response.data.description);
-      $('#product-author').html(response.data.author);
-      $('#product-publisher').html('First published '+response.data.publication_year+' by '+response.data.publisher);
-      console.log("LOG: ", response.data.stock);
+      $('#product-author').html(response.data.brand);
+      $('#product-publisher').html(response.data.type);
+      
       // START -- note, unless you have these data in a database structure, here we are hardcoding them for display purposes
         // review
         let stars = randomIntFromInterval(1,5);
@@ -34,7 +34,7 @@ function getDataByWindowUrlKey(){
           $('.product-add-to-cart-is-disabled').show();
         }
         // tag
-        let collectionOfTag = ['Book','EBook','Best Seller','Fiction','Education','Literature','Classics','Real Event','Young Adult','Religion','Health','Comic','Horror','Poem','Filmed','Encyclopedia','In English','In Indonesian'];
+        let collectionOfTag = ['Kasur','Hangat','Best Seller','Aksesoris','Lembut','Mikrofiber','Bantal','Halus','Lembut','Handuk','Guling','Mewah','Shower','Bed Cover','Aluminium','Anti Karat'];
         let selectedTags    = collectionOfTag.sort(() => .5 - Math.random()).slice(0, 4); // only get 4, randomly, from collectionOfTag
         template = '';
         for (let index = 0; index < selectedTags.length; index++) {

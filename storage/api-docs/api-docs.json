@@ -1,8 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "My Rest Api",
-        "description": "Laravel project to practice developing Rest API with L5 Swagger OpenApi",
+        "title": "Bed And Bath API",
         "contact": {
             "name": "Victorio Putra Saritan",
             "email": "victorio.422023022@civitas.ukrida.ac.id"
@@ -183,9 +182,9 @@
                         }
                     },
                     {
-                        "name": "_publisher",
+                        "name": "_type",
                         "in": "query",
-                        "description": "search by publisher like name",
+                        "description": "search by type like name",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -228,13 +227,12 @@
                                 "$ref": "#/components/schemas/Bed"
                             },
                             "example": {
-                                "title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!",
-                                "author": "Robert T. Kiyosaki dengan Sharon Lechter",
-                                "publisher": "Plata Publishing",
-                                "publication_year": "2011",
-                                "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/book/1482170055i/33511107.jpg",
-                                "description": "Rich Dad Poor Dad adalah buku yang mengubah cara orang memandang uang dan investasi. Robert T. Kiyosaki menceritakan pengalamannya dibesarkan oleh dua \n    *                        ayah—ayah kandungnya yang miskin dan ayah angkatnya yang kaya—dan pelajaran yang dia pelajari dari keduanya. Buku ini menekankan pentingnya literasi finansial, investasi, dan pengelolaan keuangan yang bijak. Kiyosaki mengajak pembaca untuk berpikir kritis tentang bagaimana mereka dapat mencapai kebebasan finansial melalui pendidikan dan pengambilan keputusan yang tepat.",
-                                "price": 204000
+                                "product_name": "kursi 160x200 ",
+                                "brand": "Informa",
+                                "type": "Kasur",
+                                "cover": "https://res.cloudinary.com/ruparupa-com/image/upload/l_2.1:c5f05d:8cb583/w_738,h_738/f_auto,q_auto:eco/v1690873564/Products/10327678_3.jpg",
+                                "description": "Struktur per pada kasur dirancang agar memberi area tidur yang nyaman dan independen saat digunakan oleh dua orang. Beban pun akan tersebar ke seluruh sisi kasur, tanpa menimbulkan bunyi berisik dan per akan dengan mudah kembali ke posisi semula. Kasur ini juga dilengkapi bantal dan guling berbahan dasar chopped memory foam dengan cover yang bisa dilepas dan dicuci. Memerhatikan unsur higienitas dan efisiensi, kasur beserta bantal dan guling akan divakum dan dikemas dalam kotak.",
+                                "price": 3099000
                             }
                         }
                     }
@@ -338,13 +336,12 @@
                                 "$ref": "#/components/schemas/Bed"
                             },
                             "example": {
-                                "title": "Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!",
-                                "author": "Robert T. Kiyosaki dengan Sharon Lechter",
-                                "publisher": "Plata Publishing",
-                                "publication_year": "2011",
-                                "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/book/1482170055i/33511107.jpg",
-                                "description": "Rich Dad Poor Dad adalah buku yang mengubah cara orang memandang uang dan investasi. Robert T. Kiyosaki menceritakan pengalamannya dibesarkan oleh dua \n    *                        ayah—ayah kandungnya yang miskin dan ayah angkatnya yang kaya—dan pelajaran yang dia pelajari dari keduanya. Buku ini menekankan pentingnya literasi finansial, investasi, dan pengelolaan keuangan yang bijak. Kiyosaki mengajak pembaca untuk berpikir kritis tentang bagaimana mereka dapat mencapai kebebasan finansial melalui pendidikan dan pengambilan keputusan yang tepat.",
-                                "price": 204000
+                                "product_name": "kursi 160x200 ",
+                                "brand": "Informa",
+                                "type": "Kasur",
+                                "cover": "https://res.cloudinary.com/ruparupa-com/image/upload/l_2.1:c5f05d:8cb583/w_738,h_738/f_auto,q_auto:eco/v1690873564/Products/10327678_3.jpg",
+                                "description": "Struktur per pada kasur dirancang agar memberi area tidur yang nyaman dan independen saat digunakan oleh dua orang. Beban pun akan tersebar ke seluruh sisi kasur, tanpa menimbulkan bunyi berisik dan per akan dengan mudah kembali ke posisi semula. Kasur ini juga dilengkapi bantal dan guling berbahan dasar chopped memory foam dengan cover yang bisa dilepas dan dicuci. Memerhatikan unsur higienitas dan efisiensi, kasur beserta bantal dan guling akan divakum dan dikemas dalam kotak.",
+                                "price": 3099000
                             }
                         }
                     }

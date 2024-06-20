@@ -1,7 +1,7 @@
 let id_el_list = "#product-list";
 
 function getDataOnEnter(event){
-    if (event.keycode == 13) {
+    if (event.keyCode == 13) {
         getData(1);
     }
 }
@@ -28,7 +28,7 @@ function getData(toPage=1){
                                     <div class="single-product-item text-center">
                                         <div class="products-images">
                                             <a href="/bed/`+item.id+`" class="product-thumbnail">
-                                                <img src="`+item.cover+`" alt="Product Images" height="300">
+                                                <img src="`+item.cover+`" alt="Product Images" height="250" style="border:5px solid #DCB14A; border-radius:15px;">
                                             </a>
                                             <div class="product-actions">
                                                 <a href="/bed/`+item.id+`">
@@ -41,11 +41,11 @@ function getData(toPage=1){
                                         </div>  
                                         <div class="product-content">
                                             <h6 class="product-title">
-                                            <a href="/bed/`+item.id+`">`+item.title+`</a>
+                                            <a href="/bed/`+item.id+`">`+item.product_name+`</a>
                                         </h6>
-                                        <small class="text-color-primary">`+item.series+`</small>
+                                        <small class="text-color-primary">`+item.brand+`</small>
                                         <div class="product-price">
-                                            <span class="new-price">IDR `+parseFloat(item.price).toLocaleString()+`</span>
+                                            <span class="new-price">IDR `+parseFloat(item.price).toLocaleString("id-ID")+`</span>
                                         </div>
                                     </div>
                                 </div>
@@ -58,12 +58,12 @@ function getData(toPage=1){
             $('#products_count_end').html(response.data.products_count_end);
             $('#products_count_total').html(response.data.products_count_total);
             template = '';
-            let max_page = Math.ceil(response.data.products_count_total/response.data.filter._limit);
+            let Last_page = Math.ceil(response.data.products_count_total/response.data.filter._limit);
             if(response.data.filter._page != 1){
                 template +=
                 `<li>
                     <a class="prev page-numbers" onclick=getData(1)">
-                        <i class="icon-chevron-left"></i>&nbsp;&nbsp;&nbsp;Min Page
+                        <i class="icon-chevron-left"></i>&nbsp;&nbsp;&nbsp;First Page
                     </a>
                 </li>`;
             }
@@ -81,7 +81,7 @@ function getData(toPage=1){
                         `+response.data.filter._page+`
                     </a>
                 </li>`;
-            if(response.data.filter._page < max_page){
+            if(response.data.filter._page < Last_page){
                 template +=
                 `<li>
                     <a class="page-numbers" onclick="getData(`+(response.data.filter._page+1)+`)">
@@ -89,7 +89,7 @@ function getData(toPage=1){
                     </a>
                 </li>`
             }
-            if(response.data.filter._page < max_page){
+            if(response.data.filter._page < Last_page){
                 template +=
                 `<li>
                     <a class="page-numbers" onclick="getData(`+(response.data.filter._page+2)+`)">
@@ -97,11 +97,11 @@ function getData(toPage=1){
                     </a>
                 </li>`
             }
-            if(response.data.filter._page+1 < max_page){
+            if(response.data.filter._page+1 < Last_page){
                 template +=
                 `<li>
-                    <a class="next page-numbers" onclick="getData(`+max_page+`)">
-                        Max page<i class="icon-chevron-right"></i>
+                    <a class="next page-numbers" onclick="getData(`+Last_page+`)">
+                        Last_page<i class="icon-chevron-right"></i>
                     </a>
                 </li>`
             }
